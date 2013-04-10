@@ -1,0 +1,18 @@
+#!1 __WebmailJunk__
+if spamtest {
+  fileinto "Junk E-mail";
+  stop;
+}
+
+#!1 desativar_ausencia
+if header :contains "Subject" "auto-reply"
+{
+  stop;
+}
+
+#!1 __WebmailAutoreply__
+if true {
+   vacation 
+     :subject "auto-reply" 
+     :days 0 "
+outro"; }
