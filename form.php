@@ -8,13 +8,11 @@
 		$linhas_arquivo = file($arquivo);
 		
 		$linhas = verificaScript($linhas_arquivo);
-		echo $linhas;
 		
 		if ($linhas < 16)
 		{
 			$linhas_arquivo = getScript();
 			$linhas_arquivo[17] = '';
-
 		}
 		elseif ($linhas == 16)
 		{
