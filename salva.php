@@ -30,15 +30,19 @@ $linhas_arquivo[17] = $conteudo.'"; }';
 $autoresposta = fopen($arquivo, 'w');
 //$novo_conteudo = '';
 //foreach($linhas_arquivo as $value)
-for ($i = 0; $i == count($linhas_arquivo); $i++)
+for ($i = 0; $i < count($linhas_arquivo); $i++)
 {
 	//$novo_conteudo = $novo_conteudo.$value;
-	fwrite($autoresposta, $i);
+	if (!fwrite($autoresposta, $linhas_arquivo[$i]))
+	{
+		echo "erro ao salvar a autoresposta";
+		exit;
+	}
 }
 //echo $novo_conteudo;
 
 //$texto = "texto.txt";
-;
+
 //fwrite($autoresposta, $novo_conteudo);
 fclose($autoresposta);
 
